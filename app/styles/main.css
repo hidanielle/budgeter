@@ -1,0 +1,11 @@
+table {
+  table-layout: fixed;
+}
+
+td:first-child{
+  padding-left: 15px !important;
+}
+
+.table > tbody > tr > td {
+  vertical-align: middle;
+}
