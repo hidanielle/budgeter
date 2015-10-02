@@ -91,18 +91,6 @@ angular.module('budgeterApp')
       $scope.items.splice($scope.items.indexOf(item),1);
     };
 
-    $scope.enableEditor = function(item) {
-      $scope.editorEnabled = true;
-    };
-
-    $scope.disableEditor = function() {
-      $scope.editorEnabled = false;
-    };
-
-    $scope.saveEdit = function(item) {
-      $scope.disableEditor();
-    };
-
     $scope.total = function(type) {
       var totalAdd = 0;
       var totalSubtract = 0;
