@@ -49,28 +49,37 @@
       <li class="list-group-item">
         <h4 class="list-group-item-heading">
           Total Monthly Income 
-          <span class="label label-success pull-right">{{ total('add').totalAdd | currency }}</span>
+          <span class="label label-success pull-right">{{ totalAdd | currency }}</span>
         </h4> 
       </li> 
       <li class="list-group-item">
         <h4 class="list-group-item-heading">
           Total Monthly Expenses 
-          <span class="label label-warning pull-right">{{ total('subtract').totalSubtract | currency }}</span>
+          <span class="label label-warning pull-right">{{ totalSubtract | currency }}</span>
         </h4>
       </li>
       <li class="list-group-item">
         <h4 class="list-group-item-heading">
           Total Monthly Savings 
-          <span class="label label-info pull-right">{{ total('savings').totalSavings | currency }}</span>
+          <span class="label label-info pull-right">{{ totalSavings | currency }}</span>
         </h4>
       </li>
       <li class="list-group-item">
         <h4 class="list-group-item-heading">
           Total Monthly Cash Balance 
-          <span ng-class="{'label-danger': total('add').totalAdd - total('subtract').totalSubtract < 0, 'label-primary': total('add').totalAdd - total('subtract').totalSubtract > 0 }" class="label pull-right">{{ total('add').totalAdd - total('subtract').totalSubtract | currency }}</span>
+          <span ng-class="{'label-danger': totalAdd - totalSubtract < 0, 'label-primary': totalAdd - totalSubtract > 0 }" class="label pull-right">{{ totalAdd - totalSubtract | currency }}</span>
         </h4>
       </li>
     </ul>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <canvas id="pie" class="chart chart-pie"
+          chart-data="data" chart-labels="labels">
+        </canvas> 
+      </div>
+    </div>
   </div>
 </div>
 

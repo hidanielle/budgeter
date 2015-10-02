@@ -91,25 +91,24 @@ angular.module('budgeterApp')
       $scope.items.splice($scope.items.indexOf(item),1);
     };
 
-    $scope.total = function(type) {
-      var totalAdd = 0;
-      var totalSubtract = 0;
-      var totalSavings = 0;
-      // var total = 0;
+    $scope.totalAdd = 0;
+    $scope.totalSubtract = 0;
+    $scope.totalSavings = 0;
 
-      angular.forEach($scope.items, function(item) {
-        if (item.type === type && type==='add') {
-          totalAdd += item.amount;
-        }
-        if (item.type === type && type==='subtract') {
-          totalSubtract += item.amount;
-        }
-        if (item.category === 'savings') {
-          totalSavings += item.amount;
-        }
-      });
+    angular.forEach($scope.items, function(item) {
+      if (item.type==='add') {
+        $scope.totalAdd += item.amount;
+      }
+      if (item.type==='subtract') {
+        $scope.totalSubtract += item.amount;
+      }
+      if (item.category === 'savings') {
+        $scope.totalSavings += item.amount;
+      }
+    });
 
-      return {totalAdd:totalAdd, totalSubtract:totalSubtract, totalSavings:totalSavings};
-    };
+    $scope.labels = ["Income", "Expenses", "Savings"];
+    $scope.data = [$scope.totalAdd, $scope.totalSubtract, $scope.totalSavings];
+
 
   }]);
