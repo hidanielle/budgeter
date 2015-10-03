@@ -44,7 +44,9 @@ angular.module('budgeterApp')
       $scope.total();
     };
 
-
+    $scope.totalAdd = 0;
+    $scope.totalSubtract = 0;
+    $scope.totalSavings = 0;
 
     $scope.total = function() {
       $scope.totalAdd = 0;
