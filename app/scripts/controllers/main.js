@@ -47,6 +47,7 @@ angular.module('budgeterApp')
     $scope.totalAdd = 0;
     $scope.totalSubtract = 0;
     $scope.totalSavings = 0;
+    $scope.totalCash = 0;
 
     $scope.total = function() {
       $scope.totalAdd = 0;
@@ -62,9 +63,11 @@ angular.module('budgeterApp')
         if (item.category === 'savings') {
           $scope.totalSavings += item.amount;
         }
+        $scope.totalCash = $scope.totalAdd - $scope.totalSubtract;
       });
-      $scope.labels = ["Income", "Expenses", "Savings"];
-      $scope.data = [$scope.totalAdd, $scope.totalSubtract, $scope.totalSavings];
+      $scope.labels = ["Cash", "Expenses", "Savings"];
+      $scope.colours = ["#337ab7", "#f0ad4e","#5bc0de"];
+      $scope.data = [$scope.totalCash, $scope.totalSubtract, $scope.totalSavings];
     };
 
   }]);
